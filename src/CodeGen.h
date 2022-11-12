@@ -21,6 +21,6 @@ public:
     program->Codegen(context);
   };
 };
-}
+} // namespace lcc::codegen
 
 #endif // LCC_CODEGEN_H

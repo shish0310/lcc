@@ -2,7 +2,7 @@ int testAssign() {
   int a;
   int b;
   a = 100, b = 10;
-  return a+b;
+  return a + b;
 }
 
 int testConditionExpr() {
@@ -16,7 +16,7 @@ int testLogOr() {
   int b = 10;
   if (a || b) {
     return a + b;
-  }else {
+  } else {
     return a - b;
   }
 }
@@ -61,23 +61,23 @@ int testRelation() {
   int a = 1;
   int b = 2;
 
-// todo if else code gen
+  // todo if else code gen
 
-//  int c;
-//  if (a < b) {
-//    c = b;
-//  }else if (a > b) {
-//    c = a;
-//  }else {
-//    c = 1000;
-//  }
+  //  int c;
+  //  if (a < b) {
+  //    c = b;
+  //  }else if (a > b) {
+  //    c = a;
+  //  }else {
+  //    c = 1000;
+  //  }
 
-//  int d;
-//  if (c >= 10) {
-//    d = c;
-//  }else {
-//    d = 1024;
-//  }
+  //  int d;
+  //  if (c >= 10) {
+  //    d = c;
+  //  }else {
+  //    d = 1024;
+  //  }
   return a < b;
 }
 
@@ -89,7 +89,7 @@ int testShift() {
 int testAdd() {
   int a = 3;
   int b = 5;
-  return (a+b)+(a-b)+a*b+a/b;
+  return (a + b) + (a - b) + a * b + a / b;
 }
 
 int testUnary() {
@@ -99,6 +99,4 @@ int testUnary() {
   return ~a + !a + (-a) + (+a);
 }
 
-int main() {
-  return testUnary();
-}
+int main() { return testUnary(); }

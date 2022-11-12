@@ -10,9 +10,9 @@
 
 #ifndef LCC_PARSER_H
 #define LCC_PARSER_H
-#include <vector>
-#include "Token.h"
 #include "Syntax.h"
+#include "Token.h"
+#include <vector>
 namespace lcc::parser {
 class Parser {
 private:
@@ -22,7 +22,9 @@ private:
   TokIter mTokEnd;
 
 public:
-  explicit Parser(std::vector<lexer::Token> && tokens): mTokens(std::move(tokens)), mTokCursor(mTokens.cbegin()), mTokEnd(mTokens.cend()) {}
+  explicit Parser(std::vector<lexer::Token> &&tokens)
+      : mTokens(std::move(tokens)), mTokCursor(mTokens.cbegin()),
+        mTokEnd(mTokens.cend()) {}
   std::unique_ptr<Program> ParseProgram();
 
 private:
@@ -70,5 +72,5 @@ private:
   bool IsUnaryOp(lexer::TokenType tokenType);
   bool IsPostFixExpr(lexer::TokenType tokenType);
 };
-}
+} // namespace lcc::parser
 #endif // LCC_PARSER_H

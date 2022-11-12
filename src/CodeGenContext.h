@@ -21,7 +21,7 @@ class Type;
 }
 namespace lcc {
 
-using NodeRetValue = std::tuple<llvm::Value *, llvm::Type*, bool>;
+using NodeRetValue = std::tuple<llvm::Value *, llvm::Type *, bool>;
 using LLVMTypePtr = llvm::Type *;
 
 class CodeGenContext {
@@ -45,7 +45,7 @@ public:
     mGlobalScope[name] = valueSignPair;
   }
 
-  NodeRetValue FindVar(const std::string& name) {
+  NodeRetValue FindVar(const std::string &name) {
     for (auto mp = mLocalScope.rbegin(); mp != mLocalScope.rend(); ++mp) {
       if (mp->find(name) != mp->end()) {
         return (*mp)[name];
@@ -54,19 +54,15 @@ public:
     return mGlobalScope[name];
   }
 
-  void PushScope() {
-    mLocalScope.emplace_back();
-  }
+  void PushScope() { mLocalScope.emplace_back(); }
 
-  void PopScope() {
-    mLocalScope.pop_back();
-  }
+  void PopScope() { mLocalScope.pop_back(); }
 
   void ClearScope() {
     mLocalScope.clear();
     PushScope();
   }
 };
-} // namespace lcc::parser
+} // namespace lcc
 
 #endif // LCC_CODE_GEN_CONTEXT_H

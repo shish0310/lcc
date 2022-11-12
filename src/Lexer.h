@@ -15,14 +15,7 @@
 #include <unordered_map>
 #include <vector>
 namespace lcc::lexer {
-enum class IntegerType {
-  Default,
-  U,
-  UL,
-  ULL,
-  L,
-  LL
-};
+enum class IntegerType { Default, U, UL, ULL, L, LL };
 class Lexer {
 private:
   uint8_t *mCursor;

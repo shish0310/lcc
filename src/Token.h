@@ -19,9 +19,8 @@ enum TokenType {
 #include "TokenKinds.def"
 };
 class Token {
-  using TokenValue =
-      std::variant<std::monostate, int32_t, uint32_t, int64_t, uint64_t,
-                   float, double, std::string>;
+  using TokenValue = std::variant<std::monostate, int32_t, uint32_t, int64_t,
+                                  uint64_t, float, double, std::string>;
 
 private:
   uint64_t mLine;
